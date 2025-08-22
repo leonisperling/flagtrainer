@@ -11,11 +11,11 @@ function FlagGallery() {
         <section key={continent}>
           <h2>{continent}</h2>
           <div>
-            {countries.map(code => (
+            {countries.map(entry => (
               <img
-                key={code}
-                src={getFlagSrc(code)}
-                alt={`${code} flag`}
+                key={entry.code}
+                src={getFlagSrc(entry.code)}
+                alt={`Flag of ${entry.name}`}
                 width={48}
                 onError={(e) => { e.currentTarget.style.display = 'none'; }}
               />
