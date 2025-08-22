@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import FlagGallery from './FlagGallery';
 import continents from '../lib/continents'
 import FlagQuiz from './FlagQuiz';
+import FlagMarquee from './FlagMarquee';
 
 export default function Intro() {
 
@@ -59,7 +60,8 @@ export default function Intro() {
 
   return (
     <div>
-      <h1 className="text-3xl text-amber-300 mb-3">Welcome to the flag trainer</h1>
+      <FlagMarquee />
+      <h1 className="text-3xl text-amber-300 mb-3">Welcome to flag hunter</h1>
       <h2 className="mb-8">You can look all the flags per continent or you can take the quiz</h2>
       <div className="flex flex-row justify-center gap-6">
         <button onClick={() => setView('flags')}>Go to all flags</button>
