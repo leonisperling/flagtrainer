@@ -25,41 +25,41 @@ const FlagQuiz: React.FC<FlagQuizProps> = ({ selection, onBack }) => {
 	const [countries] = useState<CountryInfo[]>(() => shuffle(getCountries(selection)));
 	const [current, setCurrent] = useState(0);
 	const [answer, setAnswer] = useState('');
-		const [feedback, setFeedback] = useState<{ message: string; type: 'correct' | 'incorrect' | null } | null>(null);
-		const [score, setScore] = useState(0);
-		const [countdown, setCountdown] = useState<number | null>(null);
+  const [feedback, setFeedback] = useState<{ message: string; type: 'correct' | 'incorrect' | null } | null>(null);
+  const [score, setScore] = useState(0);
+  const [countdown, setCountdown] = useState<number | null>(null);
 
 	const country = countries[current];
 
-				const handleSubmit = (e: React.FormEvent) => {
-					e.preventDefault();
-					if (!country) return;
-					if (answer.trim().toLowerCase() === country.name.trim().toLowerCase()) {
-						setScore(s => s + 1);
-						setAnswer('');
-						setFeedback({ message: 'Correct!', type: 'correct' });
-						setTimeout(() => {
-							setFeedback(null);
-							setCurrent(c => c + 1);
-						}, 700);
-					} else {
-						setFeedback({ message: `Incorrect! The correct answer is ${country.name}.`, type: 'incorrect' });
-						setCountdown(5);
-					}
-				};
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!country) return;
+    if (answer.trim().toLowerCase() === country.name.trim().toLowerCase()) {
+      setScore(s => s + 1);
+      setAnswer('');
+      setFeedback({ message: 'Correct!', type: 'correct' });
+      setTimeout(() => {
+        setFeedback(null);
+        setCurrent(c => c + 1);
+      }, 700);
+    } else {
+      setFeedback({ message: `Incorrect! The correct answer is ${country.name}.`, type: 'incorrect' });
+      setCountdown(5);
+    }
+  };
 
-				React.useEffect(() => {
-					if (countdown === null) return;
-					if (countdown === 0) {
-						setCountdown(null);
-						setFeedback(null);
-						setAnswer('');
-						setCurrent(c => c + 1);
-						return;
-					}
-					const timer = setTimeout(() => setCountdown(c => (c !== null ? c - 1 : null)), 1000);
-					return () => clearTimeout(timer);
-				}, [countdown]);
+  React.useEffect(() => {
+    if (countdown === null) return;
+    if (countdown === 0) {
+      setCountdown(null);
+      setFeedback(null);
+      setAnswer('');
+      setCurrent(c => c + 1);
+      return;
+    }
+    const timer = setTimeout(() => setCountdown(c => (c !== null ? c - 1 : null)), 1000);
+    return () => clearTimeout(timer);
+  }, [countdown]);
 
 	if (!country) {
 		return (
