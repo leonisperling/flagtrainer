@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import continents from '../lib/continents';
+import { getFlagSrc } from '../lib/flagUtils';
 
-function getFlagSrc(code: string) {
-  return `/flags/png1000px/${code}.png`;
-}
 
 function FlagGallery() {
   const [openContinents, setOpenContinents] = useState<{ [key: string]: boolean }>({});
