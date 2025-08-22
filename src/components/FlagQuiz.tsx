@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import continents, { CountryInfo } from '../lib/continents';
+import FlagImageModal from './FlagImageModal';
 
 type FlagQuizProps = {
 	selection: string;
@@ -60,12 +61,6 @@ const FlagQuiz: React.FC<FlagQuizProps> = ({ selection, onBack }) => {
 					return () => clearTimeout(timer);
 				}, [countdown]);
 
-	const handleNext = () => {
-		setAnswer('');
-		setFeedback(null);
-		setCurrent(c => c + 1);
-	};
-
 	if (!country) {
 		return (
 			<div className="flex flex-col items-center">
@@ -89,19 +84,14 @@ const FlagQuiz: React.FC<FlagQuizProps> = ({ selection, onBack }) => {
 					onClick={() => setShowModal(true)}
 					style={{ transition: 'box-shadow 0.2s', boxShadow: showModal ? '0 0 0 2px #2563eb' : undefined }}
 				/>
-				{showModal && (
-					<div
-						className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50"
-						onClick={() => setShowModal(false)}
-					>
-						<img
-							src={getFlagSrc(country.code)}
-							alt="Country flag large"
-							style={{ maxWidth: '90vw', maxHeight: '80vh', borderRadius: '1rem', boxShadow: '0 4px 32px rgba(0,0,0,0.5)' }}
-							onClick={e => e.stopPropagation()}
-						/>
-					</div>
-				)}
+
+        {showModal &&
+          <FlagImageModal
+            flagSource={getFlagSrc(country.code)}
+            open={showModal}
+            onClose={() => setShowModal(false)}
+          />
+        }
 				<form onSubmit={handleSubmit} className="mb-4 w-full max-w-xs">
 					<input
 						type="text"
