@@ -61,7 +61,7 @@ const FlagQuiz: React.FC<FlagQuizProps> = ({ selection, onBack }) => {
       }, 700);
     } else {
       setFeedback({ message: `Incorrect! The correct answer is ${country.name}.`, type: 'incorrect' });
-      setCountdown(5);
+      setCountdown(3);
     }
   };
 
