@@ -2,3 +2,4 @@
 */.pnp*
 *.pnp.js*
 *package-lock.json*
+*DS_Store*
