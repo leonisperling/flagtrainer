@@ -14,9 +14,9 @@ function FlagGallery() {
   };
 
   return (
-    <div className="flex flex-col items-start w-full max-w-4xl mx-auto px-2">
+    <div className="flex flex-col items-start mx-auto px-2">
       {Object.entries(continents).map(([continent, countries]) => (
-        <section key={continent} className="w-full max-w-4xl mx-auto">
+        <section key={continent} className="w-72 md:w-4xl mx-auto">
           <button
             className="text-2xl sm:text-3xl font-bold flex items-center mb-2 focus:outline-none justify-start w-full bg-transparent border-none cursor-pointer p-0 text-left"
             onClick={() => handleToggle(continent)}
@@ -32,7 +32,7 @@ function FlagGallery() {
           </button>
           {openContinents[continent] && (
             <div
-              className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6 mt-4 w-full"
+              className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6 mt-4 w-full mb-10"
             >
               {countries.map(entry => (
                 <div

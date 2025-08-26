@@ -1,16 +1,11 @@
 import React, { useState } from 'react';
 import FlagQuestion from './FlagQuestion';
 import continents, { CountryInfo } from '../lib/continents';
-import FlagImageModal from './FlagImageModal';
 
 type FlagQuizProps = {
 	selection: string;
 	onBack?: () => void;
 };
-
-function getFlagSrc(code: string) {
-	return `/flags/png1000px/${code}.png`;
-}
 
 function getCountries(selection: string): CountryInfo[] {
 	if (selection === 'All') {

@@ -17,7 +17,7 @@ export default function FlagMarquee() {
     />
   ));
   return (
-    <div className="max-w-64 md:w-full overflow-x-hidden overflow-y-hidden py-2 sm:py-4 mb-2 sm:mb-4" style={{ position: 'relative', maxHeight: '56px' }}>
+    <div className="max-w-64 sm:max-w-full overflow-x-hidden overflow-y-hidden py-2 sm:py-4 mb-2 sm:mb-4" style={{ position: 'relative', maxHeight: '56px' }}>
       <div className="flex flex-nowrap items-center" style={{ width: 'max-content', animation: 'marquee 40s linear infinite' }}>
         {flagRow}
         {flagRow}
