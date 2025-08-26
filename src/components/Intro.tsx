@@ -66,7 +66,7 @@ export default function Intro() {
         <FlagMarquee />
       </div>
       <h1 className="text-2xl sm:text-3xl font-extrabold text-shadow-lg text-shadow-sky-600 mb-4 text-center leading-tight">Welcome to flag trainer</h1>
-      <h2 className="mb-4 text-lg sm:text-xl font-extralight text-center leading-loose">Your one stop shop for flag training</h2>
+      <h2 className="mb-4 text-lg sm:text-xl font-extralight text-center leading-loose">Your one stop shop for your flag training needs</h2>
       <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 w-full max-w-md mx-auto mt-8">
         <button className="px-6 py-3 bg-blue-500 text-white rounded mb-2 sm:mb-0 w-full sm:w-auto text-lg font-semibold shadow-sm" onClick={() => setView('flags')}>Look at all flags</button>
         <button className="px-6 py-3 bg-green-500 text-white rounded w-full sm:w-auto text-lg font-semibold shadow-sm" onClick={() => setView('quiz')}>Take a quiz</button>
