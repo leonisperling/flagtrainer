@@ -59,13 +59,15 @@ export default function Intro() {
   }
 
   return (
-    <div>
-      <FlagMarquee />
-      <h1 className="text-3xl text-amber-300 mb-3">Welcome to flag trainer</h1>
-      <h2 className="mb-8">You can look all the flags per continent or you can take the quiz</h2>
-      <div className="flex flex-row justify-center gap-6">
-        <button onClick={() => setView('flags')}>Go to all flags</button>
-        <button onClick={() => setView('quiz')}>Go to quiz</button>
+    <div className="px-2 py-4 w-full min-h-screen flex flex-col items-center justify-start">
+      <div className="w-full overflow-x-hidden mb-4 flex justify-center">
+        <FlagMarquee />
+      </div>
+      <h1 className="text-2xl sm:text-3xl text-amber-300 mb-3 text-center leading-tight">Welcome to flag trainer</h1>
+      <h2 className="mb-8 text-base sm:text-lg text-center leading-snug">You can look all the flags per continent or you can take the quiz</h2>
+      <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 w-full max-w-md mx-auto">
+        <button className="px-6 py-3 bg-blue-500 text-white rounded mb-2 sm:mb-0 w-full sm:w-auto text-lg font-semibold shadow-sm" onClick={() => setView('flags')}>Go to all flags</button>
+        <button className="px-6 py-3 bg-green-500 text-white rounded w-full sm:w-auto text-lg font-semibold shadow-sm" onClick={() => setView('quiz')}>Go to quiz</button>
       </div>
     </div>
   );

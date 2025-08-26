@@ -14,45 +14,30 @@ function FlagGallery() {
   };
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', maxWidth: '900px', marginLeft: '0', marginRight: 'auto', width: '100%' }}>
+    <div className="flex flex-col items-start w-full max-w-4xl mx-auto px-2">
       {Object.entries(continents).map(([continent, countries]) => (
-        <section key={continent} style={{ width: '100%', maxWidth: '900px', marginLeft: 0, marginRight: 'auto' }}>
+        <section key={continent} className="w-full max-w-4xl mx-auto">
           <button
-            className="text-3xl font-bold flex items-center mb-2 focus:outline-none justify-start w-full"
+            className="text-2xl sm:text-3xl font-bold flex items-center mb-2 focus:outline-none justify-start w-full bg-transparent border-none cursor-pointer p-0 text-left"
             onClick={() => handleToggle(continent)}
-            style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0, textAlign: 'left', width: '100%' }}
             aria-expanded={!!openContinents[continent]}
           >
             <span>{continent}</span>
-            <span style={{ marginLeft: '8px', fontSize: '1.5rem', transition: 'transform 0.2s', transform: openContinents[continent] ? 'rotate(90deg)' : 'rotate(0deg)' }}>
+            <span
+              className="ml-2 text-xl sm:text-2xl transition-transform"
+              style={{ transform: openContinents[continent] ? 'rotate(90deg)' : 'rotate(0deg)' }}
+            >
               ▶
             </span>
           </button>
           {openContinents[continent] && (
             <div
-              style={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                gap: '24px',
-                justifyContent: 'flex-start',
-                alignItems: 'center',
-                marginTop: '16px',
-              }}
+              className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6 mt-4 w-full"
             >
               {countries.map(entry => (
                 <div
                   key={entry.code}
-                  className="flex flex-col items-center justify-center bg-gray-300 rounded-lg shadow-md p-4 transition-transform hover:scale-150"
-                  style={{
-                    flex: '0 0 calc(25% - 24px)',
-                    maxWidth: 'calc(25% - 24px)',
-                    minWidth: '180px',
-                    minHeight: '180px',
-                    boxSizing: 'border-box',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    display: 'flex',
-                  }}
+                  className="flex flex-col items-center justify-center bg-gray-300 rounded-lg shadow-md p-3 sm:p-4 transition-transform hover:scale-105 min-w-[120px] min-h-[120px] sm:min-w-[180px] sm:min-h-[180px]"
                 >
                   <img
                     src={getFlagSrc(entry.code)}
@@ -62,7 +47,7 @@ function FlagGallery() {
                     className="mb-2 rounded"
                     onError={(e) => { e.currentTarget.style.display = 'none'; }}
                   />
-                  <p className="text-center text-sm font-medium text-gray-800 mt-1">{entry.name}</p>
+                  <p className="text-center text-xs sm:text-sm font-medium text-gray-800 mt-1">{entry.name}</p>
                 </div>
               ))}
             </div>

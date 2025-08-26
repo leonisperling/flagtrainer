@@ -12,30 +12,20 @@ export default function FlagMarquee() {
       key={code + '-' + i}
       src={getFlagSrc(code)}
       alt={`Flag ${code}`}
-      style={{ height: 40, margin: '0 12px', verticalAlign: 'middle', borderRadius: '4px', boxShadow: '0 2px 8px rgba(0,0,0,0.08)' }}
+      className="h-4 sm:h-10 mx-2 rounded shadow"
+      style={{ verticalAlign: 'middle' }}
     />
   ));
-
   return (
-    <div style={{
-      width: '100%',
-      overflow: 'hidden',
-      padding: '1rem 0',
-      position: 'relative',
-      marginBottom: '18px'
-    }}>
-      <div style={{
-        display: 'flex',
-        width: 'max-content',
-        animation: 'marquee 350s linear infinite',
-      }}>
+    <div className="max-w-64 md:w-full overflow-x-hidden overflow-y-hidden py-2 sm:py-4 mb-2 sm:mb-4" style={{ position: 'relative', maxHeight: '56px' }}>
+      <div className="flex flex-nowrap items-center" style={{ width: 'max-content', animation: 'marquee 40s linear infinite' }}>
         {flagRow}
         {flagRow}
       </div>
       <style>{`
         @keyframes marquee {
           0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
+          100% { transform: translateX(-5%); }
         }
       `}</style>
     </div>
