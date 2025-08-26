@@ -36,7 +36,7 @@ export default function Intro() {
           >
             ← Back
           </button>
-          <h2 className="text-2xl font-bold mb-4">Choose a continent to start the quiz</h2>
+          <h2 className="text-2xl font-bold mb-4">Choose a continent or quiz yourself on every flag!</h2>
           <div className='flex items-baseline gap-4 justify-center'>
             <select
               className="mb-6 px-3 py-2 border rounded"
@@ -66,10 +66,10 @@ export default function Intro() {
         <FlagMarquee />
       </div>
       <h1 className="text-2xl sm:text-3xl font-extrabold text-shadow-lg text-shadow-sky-600 mb-4 text-center leading-tight">Welcome to flag trainer</h1>
-      <h2 className="mb-8 text-lg sm:text-xl font-extralight text-center leading-loose">You can look all the flags per continent or you can take the quiz</h2>
-      <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 w-full max-w-md mx-auto">
-        <button className="px-6 py-3 bg-blue-500 text-white rounded mb-2 sm:mb-0 w-full sm:w-auto text-lg font-semibold shadow-sm" onClick={() => setView('flags')}>Go to all flags</button>
-        <button className="px-6 py-3 bg-green-500 text-white rounded w-full sm:w-auto text-lg font-semibold shadow-sm" onClick={() => setView('quiz')}>Go to quiz</button>
+      <h2 className="mb-4 text-lg sm:text-xl font-extralight text-center leading-loose">Your one stop shop for flag training</h2>
+      <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 w-full max-w-md mx-auto mt-8">
+        <button className="px-6 py-3 bg-blue-500 text-white rounded mb-2 sm:mb-0 w-full sm:w-auto text-lg font-semibold shadow-sm" onClick={() => setView('flags')}>Look at all flags</button>
+        <button className="px-6 py-3 bg-green-500 text-white rounded w-full sm:w-auto text-lg font-semibold shadow-sm" onClick={() => setView('quiz')}>Take a quiz</button>
       </div>
     </div>
   );
