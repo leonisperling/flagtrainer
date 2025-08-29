@@ -97,8 +97,8 @@ export default function FlagQuestion({
 
   return (
     <div className="flex flex-col items-center">
-      <h2 className="text-2xl font-bold mb-4">Which country is this flag?</h2>
-      <p className="text-md font-extralight mb-4">Click on the flag to view it better</p>
+      <h2 className="text-2xl font-bold mb-2">Which country is this flag?</h2>
+      <p className="text-md mb-8">Click on the flag to enlarge it</p>
       <img
         src={getFlagSrc(country.code)}
         alt="Country flag"
@@ -117,7 +117,7 @@ export default function FlagQuestion({
           type="text"
           value={answer}
           onChange={e => onAnswerChange(e.target.value)}
-          className="border px-3 py-2 rounded w-full mb-2 bg-gray-900 text-white placeholder-gray-400"
+          className="border border-neutral-500 px-3 py-2 rounded w-full mb-2 bg-gray-800 text-white placeholder-gray-400"
           placeholder="Enter country name"
           autoFocus
           onFocus={() => answer.length > 0 && setShowOptions(true)}
@@ -125,7 +125,7 @@ export default function FlagQuestion({
           onKeyDown={handleInputKeyDown}
         />
         {showOptions && filteredOptions.length > 0 && (
-          <ul className="absolute left-0 right-0 bg-gray-800 border border-gray-700 rounded shadow z-10 max-h-40 overflow-y-auto mt-1">
+          <ul className="absolute left-0 right-0 bg-gray-800 border border-gray-700 rounded shadow z-10 max-h-40 overflow-y-auto">
             {filteredOptions.map((option, idx) => {
               // Highlight matching substring
               const lowerOption = option.toLowerCase();
@@ -146,7 +146,7 @@ export default function FlagQuestion({
                   key={option}
                   ref={el => { optionRefs.current[idx] = el; }}
                   tabIndex={-1}
-                  className={`px-3 py-2 cursor-pointer select-none transition-colors duration-100 text-left ${highlightedIndex === idx ? 'bg-blue-900 text-white' : 'text-gray-200'} hover:bg-gray-700`}
+                  className={`px-3 py-2 cursor-pointer select-none transition-colors duration-100 text-left ${highlightedIndex === idx ? 'bg-gray-700 text-white' : 'text-gray-200'} hover:bg-gray-700`}
                   onMouseDown={() => handleOptionClick(option)}
                   onMouseEnter={() => setHighlightedIndex(idx)}
                 >
