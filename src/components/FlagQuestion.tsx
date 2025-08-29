@@ -98,6 +98,7 @@ export default function FlagQuestion({
   return (
     <div className="flex flex-col items-center">
       <h2 className="text-2xl font-bold mb-4">Which country is this flag?</h2>
+      <p className="text-md font-extralight mb-4">Click on the flag to view it better</p>
       <img
         src={getFlagSrc(country.code)}
         alt="Country flag"
